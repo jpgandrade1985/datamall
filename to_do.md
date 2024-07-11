@@ -1,2 +1,2 @@
 # TO-DO
--[ ] sunbsurt faturamento por tipo loja > setor > loja
+- [ ] sunbsurt faturamento por tipo loja > setor > loja
