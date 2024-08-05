@@ -18,9 +18,16 @@ st.title('Indicadores')
 
 shopping_options = df['shopping'].unique()
 mes_options = df['mes'].unique()
-selected_shopping = st.selectbox('Shopping', shopping_options)
-selected_mes = st.selectbox('Mês', mes_options)
+
+
 filtered_df = df[(df['shopping'] == selected_shopping) & (df['mes'] == selected_mes)]
+
+col1, col2 = st.columns(2)
+with col1:
+    selected_shopping = st.selectbox('Shopping', shopping_options)
+with col2:
+    selected_mes = st.selectbox('Mês', mes_options)
+
 st.write(filtered_df)
 
 # Exibir os dados
