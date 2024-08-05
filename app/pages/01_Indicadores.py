@@ -18,8 +18,6 @@ st.write(df)
 
 shopping_options = df['shopping'].unique()
 mes_options = df['mes'].unique()
-st.selectbox('Shopping', shopping_options)
-st.selectbox('Mês', mes_options)
 selected_shopping = st.selectbox('Shopping', shopping_options)
 selected_mes = st.selectbox('Mês', mes_options)
 filtered_df = df[(df['shopping'] == selected_shopping) & (df['mes'] == selected_mes)]
