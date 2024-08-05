@@ -14,7 +14,7 @@ query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
 
 st.title('Indicadores')
-st.write(df)
+#st.write(df)
 
 shopping_options = df['shopping'].unique()
 mes_options = df['mes'].unique()
