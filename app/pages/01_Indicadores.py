@@ -15,5 +15,12 @@ df = pd.read_sql(query, engine)
 
 st.title('Indicadores')
 
+shopping_options = df['shopping'].unique()
+mes_options = df['mes'].unique()
+selected_shopping = st.selectbox('Shopping', shopping_options)
+selected_mes = st.selectbox('Mês', mes_options)
+filtered_df = df[(df['shopping'] == selected_shopping) & (df['mes'] == selected_mes)]
+st.write(filtered_df)
+
 # Exibir os dados
 #st.write(df)
