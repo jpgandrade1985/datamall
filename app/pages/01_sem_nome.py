@@ -1,5 +1,5 @@
-from sqlalchemy import create_engine
 import pandas as pd
+from sqlalchemy import create_engine
 import streamlit as st
 
 # Configurar a conexão com o MySQL
