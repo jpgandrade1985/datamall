@@ -13,7 +13,7 @@ st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
 # And the root-level secrets are also accessible as environment variables:
 st.write(
     "Has environment variables been set:",
-    os.environ["db_user"] == st.secrets["db_user"],
+    os.environ["db_user"] == st.secrets["db_user"],)
 
 # Configurar a conexão com o MySQL
 #engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}')
