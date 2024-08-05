@@ -5,18 +5,9 @@ import streamlit as st
 import os
 
 # Configurar a conexão com o MySQL
-#engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}')
-def load_data():
-    connection = mysql.connector.connect(
-        db_host,
-        db_user,
-        db_password,
-        db_name)
-    
-# Consultar dados
-    query = 'SELECT * FROM data_mall.indicadores'
-    df = pd.read_sql(query, connection)
-    return df
+engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}')
+query = 'SELECT * FROM data_mall.indicadores'
+df = pd.read_sql(query, engine)
 
 st.title('Meu Dashboard')
 
