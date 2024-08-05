@@ -8,3 +8,8 @@ engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host
 # Consultar dados
 query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
+
+st.title('Meu Dashboard')
+
+# Exibir os dados
+st.write(df)
