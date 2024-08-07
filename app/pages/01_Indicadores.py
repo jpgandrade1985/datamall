@@ -27,18 +27,18 @@ st.title('Indicadores')
 shopping_options = df['shopping'].unique()
 
 # Create lists of months and years
-months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
 years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 
 #insert filters
 col1, col2 = st.columns(2)
 with col1:
-    selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
+    selected_shopping = st.multiselect('Shopping', shopping_options, default=shopping_options)
 with col2:
-    start_month = st.selectbox('Select Start Month', months, index=0)
-    start_year = st.selectbox('Select Start Year', years, index=0)
-    end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
-    end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
+    start_month = st.selectbox('Mês início', months, index=0)
+    start_year = st.selectbox('Ano início', years, index=0)
+    end_month = st.selectbox('Mês fim', months, index=len(months) - 1)
+    end_year = st.selectbox('Ano fim', years, index=len(years) - 1)
 
 start_date = datetime.datetime.strptime(f"{start_year}-{start_month}-01", "%Y-%b-%d")
 end_date = datetime.datetime.strptime(f"{end_year}-{end_month}-01", "%Y-%b-%d")
