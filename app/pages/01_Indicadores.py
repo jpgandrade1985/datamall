@@ -21,11 +21,11 @@ mes_options = df['mes'].unique()
 
 col1, col2 = st.columns(2)
 with col1:
-    selected_shopping = st.multiselect('Shopping', shopping_options)
+    selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
 with col2:
-    selected_mes = st.multiselect('Mês', mes_options)
+    selected_mes = st.multiselect('Select Month', mes_options, default=mes_options)
 
-filtered_df = df[(df['shopping'] = selected_shopping) & (df['mes'] = selected_mes)]
+filtered_df = df[df['shopping'].isin(selected_shopping) & df['mes'].isin(selected_mes)]
 st.write(filtered_df)
 
 # Exibir os dados
