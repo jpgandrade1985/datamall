@@ -15,7 +15,7 @@ query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
 
 # Convert 'mes' column to datetime if it's not already
-df['mes'] = pd.to_datetime(df['mes'], format='%Y-%m-%d', errors='coerce')
+df['mes'] = pd.to_datetime(df['mes'], format='%d-%m-%Y', errors='coerce')
 
 # Create a new column with formatted dates
 df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
