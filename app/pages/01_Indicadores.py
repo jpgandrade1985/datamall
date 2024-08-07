@@ -25,20 +25,31 @@ st.title('Indicadores')
 #st.write(df)
 
 shopping_options = df['shopping'].unique()
-mes_options = df['mes'].unique()
+
+# Create lists of months and years
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 
 #insert filters
 col1, col2 = st.columns(2)
 with col1:
     selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
 with col2:
-    start_date, end_date = st.date_input('Select Date Range', value=[df['mes'].min().date(), df['mes'].max().date()])
+    start_month = st.selectbox('Select Start Month', months, index=0)
+    start_year = st.selectbox('Select Start Year', years, index=0)
+    end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
+    end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
 
-start_date = datetime.datetime.combine(start_date, datetime.datetime.min.time())
-end_date = datetime.datetime.combine(end_date, datetime.datetime.max.time())
+start_date = datetime.datetime.strptime(f"{start_year}-{start_month}-01", "%Y-%b-%d")
+end_date = datetime.datetime.strptime(f"{end_year}-{end_month}-01", "%Y-%b-%d")
+end_date = end_date + pd.offsets.MonthEnd(1)  # Get the last day of the end month
 
+# Filter the DataFrame based on selected values
 filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_date) & (df['mes'] <= end_date)]
+
+# Drop the original 'mes' column and rename the formatted column for display
 filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
+
 st.write(filtered_df)
 
 # Exibir os dados
