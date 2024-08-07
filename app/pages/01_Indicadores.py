@@ -14,12 +14,11 @@ engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host
 query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
 
-# Convert 'mes' column to datetime if it's not already
+# Convert 'mes' column to datetime with the correct format
 df['mes'] = pd.to_datetime(df['mes'], format='%d-%m-%Y', errors='coerce')
 
 # Create a new column with formatted dates
 df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
-
 # Write page Title
 st.title('Indicadores')
 #st.write(df)
@@ -41,10 +40,11 @@ with col2:
     end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
     end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
     # Convert selected month/year to datetime
+# Convert selected month/year to datetime
 try:
-    start_date = datetime.datetime.strptime(f"{start_year}-{start_month}-01", "%Y-%b-%d")
-    end_date = datetime.datetime.strptime(f"{end_year}-{end_month}-01", "%Y-%b-%d")
-    end_date = end_date + pd.offsets.MonthEnd(1)  # Get the last day of the end month
+    start_date = datetime.datetime.strptime(f"01-{start_month}-{start_year}", "%d-%b-%Y")
+    end_date = datetime.datetime.strptime(f"01-{end_month}-{end_year}", "%d-%b-%Y")
+    end_date = end_date + pd.DateOffset(months=1) - pd.DateOffset(days=1)  # Get the last day of the end month
 except ValueError:
     st.error("Invalid date format")
     st.stop()
@@ -54,7 +54,7 @@ if start_date < df['mes'].min():
     start_date = df['mes'].min()
 if end_date > df['mes'].max():
     end_date = df['mes'].max()
-    
+
 # Filter the DataFrame based on selected values
 filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_date) & (df['mes'] <= end_date)]
 
