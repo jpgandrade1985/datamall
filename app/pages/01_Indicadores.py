@@ -14,32 +14,31 @@ engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host
 query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
 
-# Convert 'mes' column to datetime with the correct format
+# Convert 'mes' column to datetime with the correct format and handle errors
 df['mes'] = pd.to_datetime(df['mes'], format='%d-%m-%Y', errors='coerce')
+
+# Remove rows with NaN dates
+df = df.dropna(subset=['mes'])
 
 # Create a new column with formatted dates
 df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
-# Write page Title
-st.title('Indicadores')
-#st.write(df)
 
+# Get unique values for the shopping multiselect menu
 shopping_options = df['shopping'].unique()
+
+# Create a multiselect menu for 'shopping'
+selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
 
 # Create lists of months and years
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 
-#insert filters
-col1, col2 = st.columns(2)
-with col1:
-    selected_shopping = st.multiselect('Shopping', shopping_options, default=shopping_options)
-with col2:
-    # Create select boxes for start and end month/year
-    start_month = st.selectbox('Select Start Month', months, index=0)
-    start_year = st.selectbox('Select Start Year', years, index=0)
-    end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
-    end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
-    # Convert selected month/year to datetime
+# Create select boxes for start and end month/year
+start_month = st.selectbox('Select Start Month', months, index=0)
+start_year = st.selectbox('Select Start Year', years, index=0)
+end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
+end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
+
 # Convert selected month/year to datetime
 try:
     start_date = datetime.datetime.strptime(f"01-{start_month}-{start_year}", "%d-%b-%Y")
