@@ -40,9 +40,14 @@ with col2:
     end_month = st.selectbox('Mês fim', months, index=len(months) - 1)
     end_year = st.selectbox('Ano fim', years, index=len(years) - 1)
 
-start_date = datetime.datetime.strptime(f"{start_year}-{start_month}-01", "%Y-%b-%d")
-end_date = datetime.datetime.strptime(f"{end_year}-{end_month}-01", "%Y-%b-%d")
-end_date = end_date + pd.offsets.MonthEnd(1)  # Get the last day of the end month
+# Convert selected month/year to datetime
+try:
+    start_date = datetime.datetime.strptime(f"{start_year}-{start_month}-01", "%Y-%b-%d")
+    end_date = datetime.datetime.strptime(f"{end_year}-{end_month}-01", "%Y-%b-%d")
+    end_date = end_date + pd.offsets.MonthEnd(1)  # Get the last day of the end month
+except ValueError:
+    st.error("Invalid date format")
+    st.stop()
 
 # Ensure the selected date range is valid
 if start_date < df['mes'].min():
