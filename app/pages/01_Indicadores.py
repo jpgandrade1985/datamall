@@ -61,7 +61,5 @@ filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_da
 # Drop the original 'mes' column and rename the formatted column for display
 filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 
+# Display the filtered DataFrame
 st.write(filtered_df)
-
-# Exibir os dados
-#st.write(df)
