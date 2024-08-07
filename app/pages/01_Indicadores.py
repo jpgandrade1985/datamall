@@ -13,19 +13,28 @@ engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host
 query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
 
+# Convert 'mes' column to datetime if it's not already
+df['mes'] = pd.to_datetime(df['mes'])
+
+# Create a new column with formatted dates
+df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
+
+# Write page Title
 st.title('Indicadores')
 #st.write(df)
 
 shopping_options = df['shopping'].unique()
 mes_options = df['mes'].unique()
 
+#insert filters
 col1, col2 = st.columns(2)
 with col1:
     selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
 with col2:
-    selected_mes = st.multiselect('Select Month', mes_options, default=mes_options)
+    start_date, end_date = st.date_input('Select Date Range', value=[df['mes'].min(), df['mes'].max()])
 
-filtered_df = df[df['shopping'].isin(selected_shopping) & df['mes'].isin(selected_mes)]
+filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_date) & (df['mes'] <= end_date)]
+filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 st.write(filtered_df)
 
 # Exibir os dados
