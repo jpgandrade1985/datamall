@@ -34,7 +34,7 @@ with col2:
     start_date, end_date = st.date_input('Select Date Range', value=[df['mes'].min(), df['mes'].max()])
 
 filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_date) & (df['mes'] <= end_date)]
-filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
+#filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 st.write(filtered_df)
 
 # Exibir os dados
