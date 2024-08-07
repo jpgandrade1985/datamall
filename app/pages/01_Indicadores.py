@@ -1,5 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine
+import datetime
 import streamlit as st
 import os
 
@@ -31,10 +32,13 @@ col1, col2 = st.columns(2)
 with col1:
     selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
 with col2:
-    start_date, end_date = st.date_input('Select Date Range', value=[df['mes'].min(), df['mes'].max()])
+    start_date, end_date = st.date_input('Select Date Range', value=[df['mes'].min().date(), df['mes'].max().date()])
+
+start_date = datetime.datetime.combine(start_date, datetime.datetime.min.time())
+end_date = datetime.datetime.combine(end_date, datetime.datetime.max.time())
 
 filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_date) & (df['mes'] <= end_date)]
-#filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
+filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 st.write(filtered_df)
 
 # Exibir os dados
