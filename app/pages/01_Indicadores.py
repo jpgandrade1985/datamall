@@ -15,8 +15,8 @@ query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
 
 # Convert 'mes' column to datetime with the correct format and handle errors
-#df['mes'] = pd.to_datetime(df['mes'], format='%Y-%d-%m', errors='coerce')
-df['mes'] = pd.to_datetime(df['mes'])
+df['mes'] = pd.to_datetime(df['mes'], format='%Y-%d-%m', errors='coerce')
+#df['mes'] = pd.to_datetime(df['mes'])
 
 # Remove rows with NaN dates
 df = df.dropna(subset=['mes'])
