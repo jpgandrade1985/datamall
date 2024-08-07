@@ -25,7 +25,7 @@ with col1:
 with col2:
     selected_mes = st.multiselect('Mês', mes_options)
 
-filtered_df = df[(df['shopping'] == selected_shopping) & (df['mes'] == selected_mes)]
+filtered_df = df[(df['shopping'] = selected_shopping) & (df['mes'] = selected_mes)]
 st.write(filtered_df)
 
 # Exibir os dados
