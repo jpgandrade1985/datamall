@@ -15,7 +15,7 @@ query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
 
 # Convert 'mes' column to datetime if it's not already
-df['mes'] = pd.to_datetime(df['mes'], format='%d-%m-%Y')
+df['mes'] = pd.to_datetime(df['mes'], format='%Y-%m-%d', errors='coerce')
 
 # Create a new column with formatted dates
 df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
@@ -35,12 +35,12 @@ col1, col2 = st.columns(2)
 with col1:
     selected_shopping = st.multiselect('Shopping', shopping_options, default=shopping_options)
 with col2:
-    start_month = st.selectbox('Mês início', months, index=0)
-    start_year = st.selectbox('Ano início', years, index=0)
-    end_month = st.selectbox('Mês fim', months, index=len(months) - 1)
-    end_year = st.selectbox('Ano fim', years, index=len(years) - 1)
-
-# Convert selected month/year to datetime
+    # Create select boxes for start and end month/year
+    start_month = st.selectbox('Select Start Month', months, index=0)
+    start_year = st.selectbox('Select Start Year', years, index=0)
+    end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
+    end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
+    # Convert selected month/year to datetime
 try:
     start_date = datetime.datetime.strptime(f"{start_year}-{start_month}-01", "%Y-%b-%d")
     end_date = datetime.datetime.strptime(f"{end_year}-{end_month}-01", "%Y-%b-%d")
