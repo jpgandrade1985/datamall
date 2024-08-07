@@ -44,6 +44,12 @@ start_date = datetime.datetime.strptime(f"{start_year}-{start_month}-01", "%Y-%b
 end_date = datetime.datetime.strptime(f"{end_year}-{end_month}-01", "%Y-%b-%d")
 end_date = end_date + pd.offsets.MonthEnd(1)  # Get the last day of the end month
 
+# Ensure the selected date range is valid
+if start_date < df['mes'].min():
+    start_date = df['mes'].min()
+if end_date > df['mes'].max():
+    end_date = df['mes'].max()
+    
 # Filter the DataFrame based on selected values
 filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_date) & (df['mes'] <= end_date)]
 
