@@ -26,7 +26,7 @@ st.title('Indicadores')
 shopping_options = df['shopping'].unique()
 
 # Create lists of months and years
-months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 
 #insert filters
