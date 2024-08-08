@@ -5,7 +5,7 @@ import streamlit as st
 import os
 import plotly.express as px
 
-import teste
+import bdconn
 
 def run():
     #Subtitle
