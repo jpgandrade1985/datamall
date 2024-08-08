@@ -81,7 +81,7 @@ with col1:
 with col2:
     st.write("vendas/m² total")
     fig2 = px.line(filtered_df, x="mes", y="venda_total_m2", color='shopping')
-    fig.update_layout(xaxis_visible=False)
+    fig.update_layout(xaxis={'visible': False})
     st.plotly_chart(fig2, use_container_width=True)
 
 
