@@ -84,10 +84,10 @@ tab1, tab2, tab3 = st.tabs(["Geral", "Vendas", "Contratos"])
 
 # Executando o script correspondente em cada aba
 with tab1:
-    exec("app.py")
+    run_script("app.py")
 
 with tab2:
-    exec("vendas.py")
+    run_script("vendas.py")
 
 with tab3:
-    exec("contratos.py")
+    run_script("contratos.py")
