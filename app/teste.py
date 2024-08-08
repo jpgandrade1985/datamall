@@ -70,13 +70,12 @@ filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_da
 filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 
 # Função para executar o conteúdo de um arquivo Python
+
 def run_script(path):
     if os.path.exists(path):
-        with open(path, "w", encoding="utf-8") as file:
+        with open(path, "r", encoding="utf-8") as file:
             script = file.read()
-            exec(script)
-    else:
-        st.error(f"O arquivo {path} não foi encontrado.")
+            exec(script, globals()
 
 
 # Criando as abas
