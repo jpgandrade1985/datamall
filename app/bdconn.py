@@ -1,3 +1,10 @@
+import pandas as pd
+from sqlalchemy import create_engine
+import datetime
+import streamlit as st
+import os
+import plotly.express as px
+
 # Configurar a conexão com o MySQL
 db_user = st.secrets["db_user"]
 db_password = st.secrets["db_password"]
