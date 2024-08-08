@@ -43,10 +43,10 @@ with st.sidebar:
     selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
 
     # Create select boxes for start and end month/year
-    start_month = st.selectbox('Select Start Month', months, index=0)
-    start_year = st.selectbox('Select Start Year', years, index=0)
-    end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
-    end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
+    start_month = st.selectbox('Mês Inicial', months, index=0)
+    start_year = st.selectbox('Ano Inicial', years, index=0)
+    end_month = st.selectbox('Mês Final', months, index=len(months) - 1)
+    end_year = st.selectbox('Ano Final', years, index=len(years) - 1)
 
 # Convert selected month/year to datetime
 try:
