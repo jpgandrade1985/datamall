@@ -73,7 +73,7 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 
 def run_script(path):
     if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as file:
+        with open(path, "w", encoding="utf-8") as file:
             script = file.read()
             exec(script, globals()
 
