@@ -33,9 +33,6 @@ df = df.sort_values(by='mes', ascending=True)
 # Get unique values for the shopping multiselect menu
 shopping_options = df['shopping'].unique()
 
-#Page title
-st.subheader("Geral")
-
 #Criar opções de mês e ano
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
@@ -72,6 +69,9 @@ filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_da
 # Drop the original 'mes' column and rename the formatted column for display
 filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 
+#Subtitle
+st.subheader("Vendas")
+
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -93,8 +93,53 @@ with col3:
     fig3.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'}, margin=dict(l=0, r=0, t=0, b=2))
     st.plotly_chart(fig3, use_container_width=True)
 
+#Subtitle
+st.subheader("NOI")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.write("NOI Caixa")
+    fig4 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="noi_caixa", color='shopping')
+    fig4.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Total de Vendas'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig4, use_container_width=True)
+
+with col2:
+    st.write("NOI Caixa/m² total")
+    fig5 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="noi_caixa_m2_abl_total", color='shopping')
+    fig5.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig5, use_container_width=True)
 
 
+with col3:
+    st.write("NOI Caixa/m² ocupado")
+    fig6 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="noi_caixa_m2_abl_ocupado", color='shopping')
+    fig6.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig6, use_container_width=True)
+
+#Subtitle
+st.subheader("Vacância e Inadimplência")
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.write("ABL vago")
+    fig7 = px.bar(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="abl_vago", color='shopping')
+    fig7.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'ABL Vago'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig7, use_container_width=True)
+
+with col2:
+    st.write("vendas/m² total")
+    fig7 = px.bar(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="lojas_vagas", color='shopping')
+    fig7.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Lojas Vagas'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig7, use_container_width=True)
+
+
+with col3:
+    st.write("vendas/m² ocupado")
+    fig8 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="vacancia_pct", color='shopping')
+    fig8.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vacância %'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig8, use_container_width=True)
 
 
 
