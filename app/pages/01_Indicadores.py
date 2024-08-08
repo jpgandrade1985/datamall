@@ -96,6 +96,6 @@ with col3:
 
 
 
-with st.expander("Tabela de Dados")
+with st.expander("Tabela de Dados"):
 # Display the filtered DataFrame
 st.write(filtered_df)
