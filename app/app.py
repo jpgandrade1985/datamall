@@ -36,18 +36,20 @@ shopping_options = df['shopping'].unique()
 #Page title
 st.subheader("Geral")
 
-# Create a multiselect menu for 'shopping'
-selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
-
-# Create lists of months and years
+#Criar opções de mês e ano
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 
-# Create select boxes for start and end month/year
-start_month = st.selectbox('Select Start Month', months, index=0)
-start_year = st.selectbox('Select Start Year', years, index=0)
-end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
-end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
+with st.sidebar:
+
+    # Create a multiselect menu for 'shopping'
+    selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
+
+    # Create select boxes for start and end month/year
+    start_month = st.selectbox('Select Start Month', months, index=0)
+    start_year = st.selectbox('Select Start Year', years, index=0)
+    end_month = st.selectbox('Select End Month', months, index=len(months) - 1)
+    end_year = st.selectbox('Select End Year', years, index=len(years) - 1)
 
 # Convert selected month/year to datetime
 try:
