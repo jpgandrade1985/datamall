@@ -79,14 +79,8 @@ def run_script(path):
 
 
 # Criando as abas
-tab1, tab2, tab3 = st.tabs(["Geral", "Vendas", "Contratos"])
+tab1 = st.tabs(["Geral"])
 
 # Executando o script correspondente em cada aba
 with tab1:
     run_script("app_teste.py")
-
-with tab2:
-    run_script("vendas.py")
-
-with tab3:
-    run_script("contratos.py")
