@@ -1,3 +1,10 @@
+import pandas as pd
+from sqlalchemy import create_engine
+import datetime
+import streamlit as st
+import os
+import plotly.express as px
+
 def run():
     #Subtitle
     st.subheader("Geral")
