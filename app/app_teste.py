@@ -5,12 +5,11 @@ import streamlit as st
 import os
 import plotly.express as px
 
-import bdconn
-
 def run():
     #Subtitle
     st.subheader("Geral")
     
+    import bdconn
    
     col1, col2, col3 = st.columns(3)
     
