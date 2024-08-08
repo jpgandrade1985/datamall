@@ -70,9 +70,6 @@ filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_da
 # Drop the original 'mes' column and rename the formatted column for display
 filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 
-# Display the filtered DataFrame
-st.write(filtered_df)
-
 col1, col2, col3 = st.columns(3)
 
 with col1:
@@ -93,3 +90,12 @@ with col3:
     fig3 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="venda_total_m2_ocupado", color='shopping')
     fig3.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'}, margin=dict(l=0, r=0, t=0, b=2))
     st.plotly_chart(fig3, use_container_width=True)
+
+
+
+
+
+
+with st.expander("Tabela de Dados")
+# Display the filtered DataFrame
+st.write(filtered_df)
