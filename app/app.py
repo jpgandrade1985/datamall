@@ -130,16 +130,16 @@ with col7:
 
 with col8:
     st.write("vendas/m² total")
-    fig7 = px.bar(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="lojas_vagas", color='shopping', barmode='group')
-    fig7.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Lojas Vagas'}, margin=dict(l=0, r=0, t=0, b=2))
-    st.plotly_chart(fig7, use_container_width=True)
+    fig8 = px.bar(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="lojas_vagas", color='shopping', barmode='group')
+    fig8.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Lojas Vagas'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig8, use_container_width=True)
 
 
 with col9:
     st.write("vendas/m² ocupado")
-    fig8 = px.bar(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="vacancia_pct", color='shopping', barmode='group')
-    fig8.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vacância %'}, margin=dict(l=0, r=0, t=0, b=2))
-    st.plotly_chart(fig8, use_container_width=True)
+    fig9 = px.bar(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="vacancia_pct", color='shopping', barmode='group')
+    fig9.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vacância %'}, margin=dict(l=0, r=0, t=0, b=2))
+    st.plotly_chart(fig9, use_container_width=True)
 
 
 
