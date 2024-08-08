@@ -5,8 +5,7 @@ import streamlit as st
 import os
 import plotly.express as px
 
-st.set_page_config(page_title="Legatus Data Mall", layout="wide")
-
+#importando os scripts
 # Configurar a conexão com o MySQL
 db_user = st.secrets["db_user"]
 db_password = st.secrets["db_password"]
@@ -36,6 +35,8 @@ shopping_options = df['shopping'].unique()
 #Criar opções de mês e ano
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
+
+st.set_page_config(page_title="Legatus Data Mall", layout="wide")
 
 with st.sidebar:
 
