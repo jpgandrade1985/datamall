@@ -1,4 +1,4 @@
-def run()
+def run():
     #Subtitle
     st.subheader("Geral")
     
