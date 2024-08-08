@@ -97,5 +97,5 @@ with col3:
 
 
 with st.expander("Tabela de Dados"):
-# Display the filtered DataFrame
-st.write(filtered_df)
+    # Display the filtered DataFrame
+    st.write(filtered_df)
