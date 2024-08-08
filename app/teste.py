@@ -6,7 +6,6 @@ import os
 import plotly.express as px
 
 import app_teste
-import app
 
 st.set_page_config(page_title="Legatus Data Mall", layout="wide")
 
@@ -74,16 +73,9 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 
 # Função para executar o conteúdo de um arquivo Python
 
-def run_script(path):
-    if os.path.exists(path):
-        with open(path, "w", encoding="utf-8") as file:
-            script = file.read()
-            exec(script, globals())
-
-
 # Criando as abas
 tab1 = st.tabs(["Geral"])
 
 # Executando o script correspondente em cada aba
 with tab1:
-    run_script("app_teste.py")
+    app_teste.run()
