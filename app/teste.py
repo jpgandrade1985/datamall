@@ -5,6 +5,8 @@ import streamlit as st
 import os
 import plotly.express as px
 
+import app_teste.py
+
 st.set_page_config(page_title="Legatus Data Mall", layout="wide")
 
 # Configurar a conexão com o MySQL
