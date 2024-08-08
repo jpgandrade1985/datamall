@@ -78,7 +78,7 @@ def run_script(path):
     if os.path.exists(path):
         with open(path, "w", encoding="utf-8") as file:
             script = file.read()
-            exec(script, globals()
+            exec(script, globals())
 
 
 # Criando as abas
