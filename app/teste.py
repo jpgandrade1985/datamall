@@ -73,9 +73,9 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 # Função para executar o conteúdo de um arquivo Python
 
 # Criando as abas
-tab1 = st.tabs(["Geral"])
+tabs = st.tabs(["Geral"])
 
 # Executando o script correspondente em cada aba
-with tab1:
+with tabs[0]:
     import app_teste
     app_teste.run()
