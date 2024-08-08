@@ -5,7 +5,8 @@ import streamlit as st
 import os
 import plotly.express as px
 
-import app_teste.py
+import app_teste
+import app
 
 st.set_page_config(page_title="Legatus Data Mall", layout="wide")
 
