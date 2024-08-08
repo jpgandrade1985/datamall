@@ -73,15 +73,15 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.write("vendas totais")
     fig = px.line(filtered_df, x="mes", y="venda_total", color='shopping')
-    fig.show()
+    st.plotly_chart(fig, use_container_width=True)
 
 with col2:
     st.write("vendas/m²")
     fig = px.line(filtered_df, x="mes", y="venda_total_m2", color='shopping')
-    fig.show()
+    st.plotly_chart(fig, use_container_width=True)
 
 
 with col3:
     st.write("vendas/m²")
     fig = px.line(filtered_df, x="mes", y="venda_tlta_m2_ocupado", color='shopping')
-    fig.show()
+    st.plotly_chart(fig, use_container_width=True)
