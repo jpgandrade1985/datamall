@@ -75,7 +75,7 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.write("vendas totais")
     fig1 = px.line(filtered_df, x="mes", y="venda_total", color='shopping')
-    fig.update_layout(xaxis_visible=False)
+    fig1.update_layout(xaxis={'visible': False})
     st.plotly_chart(fig1, use_container_width=True)
 
 with col2:
