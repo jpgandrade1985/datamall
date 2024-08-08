@@ -27,6 +27,9 @@ df = df.dropna(subset=['mes'])
 # Create a new column with formatted dates
 df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
 
+#sort by date
+df = df.sort_values(by='mes', ascending=True)
+
 # Get unique values for the shopping multiselect menu
 shopping_options = df['shopping'].unique()
 
