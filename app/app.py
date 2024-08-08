@@ -101,20 +101,20 @@ col1, col2, col3 = st.columns(3)
 with col1:
     st.write("NOI Caixa")
     fig4 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="noi_caixa", color='shopping')
-    fig4.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Total de Vendas'}, margin=dict(l=0, r=0, t=0, b=2))
+    fig4.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'NOI Caixa'}, margin=dict(l=0, r=0, t=0, b=2))
     st.plotly_chart(fig4, use_container_width=True)
 
 with col2:
     st.write("NOI Caixa/m² total")
     fig5 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="noi_caixa_m2_abl_total", color='shopping')
-    fig5.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2))
+    fig5.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'NOI Caixa / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2))
     st.plotly_chart(fig5, use_container_width=True)
 
 
 with col3:
     st.write("NOI Caixa/m² ocupado")
     fig6 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="noi_caixa_m2_abl_ocupado", color='shopping')
-    fig6.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'}, margin=dict(l=0, r=0, t=0, b=2))
+    fig6.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'NOI Caixa / m² ocupado'}, margin=dict(l=0, r=0, t=0, b=2))
     st.plotly_chart(fig6, use_container_width=True)
 
 #Subtitle
