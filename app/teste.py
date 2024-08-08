@@ -71,9 +71,13 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 
 # Função para executar o conteúdo de um arquivo Python
 def run_script(path):
-    with open(path, "r") as file:
-        script = file.read()
-        exec(script)
+    if os.path.exists(path):
+        with open(path, "r", encoding="utf-8") as file:
+            script = file.read()
+            exec(script)
+    else:
+        st.error(f"O arquivo {path} não foi encontrado.")
+
 
 # Criando as abas
 tab1, tab2, tab3 = st.tabs(["Geral", "Vendas", "Contratos"])
