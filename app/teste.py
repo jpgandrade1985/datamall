@@ -72,7 +72,7 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 # Função para executar o conteúdo de um arquivo Python
 def run_script(path):
     if os.path.exists(path):
-        with open(path, "r", encoding="utf-8") as file:
+        with open(path, "w", encoding="utf-8") as file:
             script = file.read()
             exec(script)
     else:
@@ -84,10 +84,10 @@ tab1, tab2, tab3 = st.tabs(["Geral", "Vendas", "Contratos"])
 
 # Executando o script correspondente em cada aba
 with tab1:
-    run_script("app.py")
+    run_script("/app.py")
 
 with tab2:
-    run_script("vendas.py")
+    run_script("/vendas.py")
 
 with tab3:
-    run_script("contratos.py")
+    run_script("/contratos.py")
