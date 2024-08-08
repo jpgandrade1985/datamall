@@ -27,6 +27,9 @@ df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
 # Get unique values for the shopping multiselect menu
 shopping_options = df['shopping'].unique()
 
+#Page title
+st.subheader("Geral")
+
 # Create a multiselect menu for 'shopping'
 selected_shopping = st.multiselect('Select Shopping', shopping_options, default=shopping_options)
 
@@ -63,3 +66,17 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 
 # Display the filtered DataFrame
 st.write(filtered_df)
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.write("vendas totais")
+    st.line_chart(data=filtered_df, *, x=None, y=None, x_label=None, y_label=None, color=None, width=None, height=None, use_container_width=True)
+
+with col2:
+    st.write("vendas/m²")
+    st.line_chart(data=None, *, x=None, y=None, x_label=None, y_label=None, color=None, width=None, height=None, use_container_width=True)
+
+with col3:
+    st.header("An owl")
+    st.line_chart(data=None, *, x=None, y=None, x_label=None, y_label=None, color=None, width=None, height=None, use_container_width=True)
