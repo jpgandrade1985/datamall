@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 import datetime
 import streamlit as st
 import os
+import plotly.express as px
 
 # Configurar a conexão com o MySQL
 db_user = st.secrets["db_user"]
@@ -71,12 +72,16 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     st.write("vendas totais")
-    st.line_chart(data=filtered_df, *, x=None, y=None, x_label=None, y_label=None, color=None, width=None, height=None, use_container_width=True)
+    fig = px.line(filtered_df, x="mes", y="venda_total", color='shopping')
+    fig.show()
 
 with col2:
     st.write("vendas/m²")
-    st.line_chart(data=None, *, x=None, y=None, x_label=None, y_label=None, color=None, width=None, height=None, use_container_width=True)
+    fig = px.line(filtered_df, x="mes", y="venda_total_m2", color='shopping')
+    fig.show()
+
 
 with col3:
-    st.header("An owl")
-    st.line_chart(data=None, *, x=None, y=None, x_label=None, y_label=None, color=None, width=None, height=None, use_container_width=True)
+    st.write("vendas/m²")
+    fig = px.line(filtered_df, x="mes", y="venda_tlta_m2_ocupado", color='shopping')
+    fig.show()
