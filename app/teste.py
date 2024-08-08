@@ -75,8 +75,7 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 # Criando as abas
 tab1 = st.tabs(["Geral"])
 
-import app_teste
-
 # Executando o script correspondente em cada aba
 with tab1:
+    import app_teste
     app_teste.run()
