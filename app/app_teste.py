@@ -8,6 +8,7 @@ import plotly.express as px
 import teste
 
 def run():
+    st.set_page_config(page_title="Legatus Data Mall", layout="wide")
     #Subtitle
     st.subheader("Geral")
     
