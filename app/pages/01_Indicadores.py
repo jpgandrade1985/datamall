@@ -88,5 +88,5 @@ with col2:
 with col3:
     st.write("vendas/m² ocupado")
     fig3 = px.line(filtered_df, x="mes", y="venda_total_m2_ocupado", color='shopping')
-    fig3.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis=={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'})
+    fig3.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'})
     st.plotly_chart(fig3, use_container_width=True)
