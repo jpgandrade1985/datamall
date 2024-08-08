@@ -36,8 +36,6 @@ shopping_options = df['shopping'].unique()
 months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 
-st.set_page_config(page_title="Legatus Data Mall", layout="wide")
-
 with st.sidebar:
 
     # Create a multiselect menu for 'shopping'
