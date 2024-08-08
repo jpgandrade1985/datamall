@@ -5,8 +5,6 @@ import streamlit as st
 import os
 import plotly.express as px
 
-import app_teste
-
 st.set_page_config(page_title="Legatus Data Mall", layout="wide")
 
 # Configurar a conexão com o MySQL
@@ -75,6 +73,8 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 
 # Criando as abas
 tab1 = st.tabs(["Geral"])
+
+import app_teste
 
 # Executando o script correspondente em cada aba
 with tab1:
