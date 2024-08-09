@@ -19,6 +19,7 @@ def graphs(filtered_df):
         fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, margin=dict(l=0, r=0, t=0, b=2), hovermode="x")
         fig1.update_yaxes(title_text="vendas", row=1)
         fig1.update_yaxes(title_text="vendas", row=2)
+        fig1.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
         st.plotly_chart(fig1, use_container_width=True)
         
     
