@@ -75,5 +75,5 @@ tabs = st.tabs(["Geral"])
 
 # Executando o script correspondente em cada aba
 with tabs[0]:
-    import app_teste
-    app_teste.run()
+    import run from geral
+    run()
