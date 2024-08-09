@@ -73,7 +73,7 @@ filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_da
 filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 
 # Agregando dados dos dois shoppings po mês
-agg_df = filtered_df.groupby('nome_mes')['venda_total'].sum()
+agg_df = filtered_df.groupby('mes')['venda_total'].sum()
 st.write(agg_df)
 
 # Criando as abas
