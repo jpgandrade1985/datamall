@@ -69,7 +69,7 @@ def graphs(filtered_df):
         st.plotly_chart(fig6, use_container_width=True)
     
     #Subtitle
-    st.subheader("Vacância e Inadimplência")
+    st.subheader("Vacância")
     
     col7, col8, col9 = st.columns(3)
     
@@ -91,6 +91,9 @@ def graphs(filtered_df):
         fig9 = px.bar(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="mes", y="vacancia_pct", color='shopping', barmode='group')
         fig9.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vacância %'}, margin=dict(l=0, r=0, t=0, b=2))
         st.plotly_chart(fig9, use_container_width=True)
+
+    #Subtitle
+    st.subheader("Inadimplência")
 
     with st.expander("Tabela de Dados"):
         # Display the filtered DataFrame
