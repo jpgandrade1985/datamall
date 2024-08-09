@@ -32,7 +32,9 @@ def graphs(filtered_df):
     with col3:
         st.write("vendas/m² ocupado ano x ano")
         fig3 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="nome_mes", y="venda_total_m2_ocupado", color='ano', facet_row="shopping")
-        fig3.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'}, margin=dict(l=0, r=0, t=0, b=2))
+        fig2.update_layout(xaxis={'showticklabels': True, 'title': ''}, margin=dict(l=0, r=0, t=0, b=2))
+        fig2.update_yaxes(title_text="vendas/m²", row=1)
+        fig2.update_yaxes(title_text="vendas/m²", row=2)
         st.plotly_chart(fig3, use_container_width=True)
     
     #Subtitle
