@@ -5,7 +5,7 @@ import streamlit as st
 import os
 import plotly.express as px
 
-def geral(filtered_df):
+def graphs(filtered_df):
     #st.set_page_config(page_title="Legatus Data Mall", layout="wide")
     #Subtitle
     st.subheader("Geral")
