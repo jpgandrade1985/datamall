@@ -16,6 +16,7 @@ def graphs(filtered_df):
         fig1 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="mes", y="venda_total", color='shopping')
         fig1.update_traces(hovertemplate=None)
         fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Total de Vendas'}, margin=dict(l=0, r=0, t=0, b=2), hovermode="x")
+        fig1.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
         st.plotly_chart(fig1, use_container_width=True)
     
     with col2:
