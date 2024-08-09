@@ -28,6 +28,7 @@ df = df.dropna(subset=['mes'])
 df['mes_formatted'] = df['mes'].dt.strftime('%b-%y')
 df['month'] =df['mes'].dt.month
 df['year'] =df['mes'].dt.year
+df['nome_mes'] = df['mes'].dt.strftime('%B')
 
 #sort by date
 df = df.sort_values(by='mes', ascending=True)
