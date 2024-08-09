@@ -18,13 +18,14 @@ def graphs(filtered_df):
         fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, margin=dict(l=0, r=0, t=0, b=2))
         fig1.update_yaxes(title_text="vendas", row=1)
         fig1.update_yaxes(title_text="vendas", row=2)
-        #fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas'}, margin=dict(l=0, r=0, t=0, b=2))
         st.plotly_chart(fig1, use_container_width=True)
     
     with col2:
-        st.write("vendas/m² ano x ano")
+        st.write("vendas/m² total ano x ano")
         fig2 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="nome_mes", y="venda_total_m2", color='ano', facet_row="shopping")
-        fig2.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2))
+        fig2.update_layout(xaxis={'showticklabels': True, 'title': ''}, margin=dict(l=0, r=0, t=0, b=2))
+        fig2.update_yaxes(title_text="vendas/m²", row=1)
+        fig2.update_yaxes(title_text="vendas/m²", row=2)
         st.plotly_chart(fig2, use_container_width=True)
     
     
