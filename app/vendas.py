@@ -9,6 +9,7 @@ def graphs(filtered_df):
     #st.set_page_config(page_title="Legatus Data Mall", layout="wide")
     #Subtitle
     st.subheader("Vendas")
+    st.markdown(''':blue-background[As informações são melhor apresentadas se for selecionado apenas um shopping''']
    
     col1, col2, col3 = st.columns(3)
     
