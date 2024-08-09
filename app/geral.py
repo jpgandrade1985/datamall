@@ -15,14 +15,14 @@ def graphs(filtered_df):
         st.write("vendas totais")
         fig1 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="mes", y="venda_total", color='shopping')
         fig1.update_traces(hovertemplate=None)
-        fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Total de Vendas'}, margin=dict(l=0, r=0, t=0, b=2))
+        fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Total de Vendas'}, margin=dict(l=0, r=0, t=0, b=2), homvermode:"x")
         st.plotly_chart(fig1, use_container_width=True)
     
     with col2:
         st.write("vendas/m² total")
         fig2 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="mes", y="venda_total_m2", color='shopping')
         fig2.update_traces(hovertemplate=None)
-        fig2.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2))
+        fig2.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2), homvermode:"x")
         st.plotly_chart(fig2, use_container_width=True)
     
     
