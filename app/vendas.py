@@ -15,21 +15,13 @@ def graphs(filtered_df):
     
     with col1:
         st.write("vendas ano x ano")
-        layout = dict(
-            hoversubplots="axis",
-            title="Stock Price Changes",
-            hovermode="x",
-        )
-
-        data = [go.Scatter(x=filtered_df["nome_mes"], y=filtered_df["venda_total"], xaxis="x", yaxis="y", name="shopping", color="ano")]
-        fig1 = go.Figure(data=filtered_df, layout=layout)
+        fig1 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="nome_mes", y="venda_total", color='ano', facet_row="shopping")
+        fig1.update_traces(mode="markers+lines", hovertemplate=None)
+        fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, margin=dict(l=0, r=0, t=0, b=2), hovermode="x")
+        fig1.update_yaxes(title_text="vendas", row=1)
+        fig1.update_yaxes(title_text="vendas", row=2)
+        st.plotly_chart(fig1, use_container_width=True)
         
-        #fig1 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="nome_mes", y="venda_total", color='ano', facet_row="shopping")
-        #fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, margin=dict(l=0, r=0, t=0, b=2), hovermode="x")
-        #fig1.update_yaxes(title_text="vendas", row=1)
-        #fig1.update_yaxes(title_text="vendas", row=2)
-        #st.plotly_chart(fig1, use_container_width=True)
-        fig1.show()
     
     with col2:
         st.write("vendas/m² total ano x ano")
