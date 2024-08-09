@@ -5,7 +5,7 @@ import streamlit as st
 import os
 import plotly.express as px
 
-from teste import *
+from teste import filtered_df
 
 def run():
     st.set_page_config(page_title="Legatus Data Mall", layout="wide")
