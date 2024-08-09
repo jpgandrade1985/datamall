@@ -9,8 +9,6 @@ def run():
     st.set_page_config(page_title="Legatus Data Mall", layout="wide")
     #Subtitle
     st.subheader("Geral")
-    
-    filtered_df2 = app.filtered_df
    
     col1, col2, col3 = st.columns(3)
     
