@@ -6,7 +6,7 @@ import os
 import plotly.express as px
 
 def run():
-    st.set_page_config(page_title="Legatus Data Mall", layout="wide")
+    #st.set_page_config(page_title="Legatus Data Mall", layout="wide")
     #Subtitle
     st.subheader("Geral")
    
