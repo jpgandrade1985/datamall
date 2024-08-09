@@ -28,7 +28,7 @@ def graphs(filtered_df):
         #fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, margin=dict(l=0, r=0, t=0, b=2), hovermode="x")
         #fig1.update_yaxes(title_text="vendas", row=1)
         #fig1.update_yaxes(title_text="vendas", row=2)
-        st.plotly_chart(fig1, use_container_width=True)
+        #st.plotly_chart(fig1, use_container_width=True)
         fig1.show()
     
     with col2:
