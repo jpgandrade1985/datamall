@@ -45,7 +45,7 @@ def graphs(filtered_df):
         st.plotly_chart(fig3, use_container_width=True)
     
     #Subtitle
-    st.subheader("NOI")
+    st.subheader("Por Tipo de Loja - Fazer os dados!!")
     
     col4, col5, col6 = st.columns(3)
     
