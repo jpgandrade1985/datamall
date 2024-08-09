@@ -7,7 +7,8 @@ import plotly.express as px
 
 def graphs(filtered_df):
     #Subtitle
-    st.subheader("Geral")
+    st.header("Geral")
+    st.subheader("Vendas")
    
     col1, col2, col3 = st.columns(3)
     
