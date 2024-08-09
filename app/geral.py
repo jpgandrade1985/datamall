@@ -6,7 +6,6 @@ import os
 import plotly.express as px
 
 def graphs(filtered_df):
-    #st.set_page_config(page_title="Legatus Data Mall", layout="wide")
     #Subtitle
     st.subheader("Geral")
    
