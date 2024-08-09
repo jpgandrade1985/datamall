@@ -85,7 +85,7 @@ with tabs[0]:
     geral.graphs(filtered_df)
 
 with tabs[1]:
-    geral.graphs(filtered_df)
+    vendas.graphs(filtered_df)
 
 with tabs[2]:
     geral.graphs(filtered_df)
