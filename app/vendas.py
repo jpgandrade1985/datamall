@@ -19,8 +19,8 @@ def graphs(filtered_df):
         st.plotly_chart(fig1, use_container_width=True)
     
     with col2:
-        st.write("vendas/m² total")
-        fig2 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="mes", y="venda_total_m2", color='shopping')
+        st.write("vendas/m² ano x ano")
+        fig2 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="nome_mes", y="venda_total_m2", color='ano')
         fig2.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2))
         st.plotly_chart(fig2, use_container_width=True)
     
