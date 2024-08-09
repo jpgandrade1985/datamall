@@ -91,7 +91,3 @@ with tabs[1]:
 
 with tabs[2]:
     geral.graphs(filtered_df)
-
-with st.expander("Tabela de Dados"):
-    # Display the filtered DataFrame
-    st.write(filtered_df)
