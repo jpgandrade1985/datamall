@@ -76,4 +76,4 @@ tabs = st.tabs(["Geral"])
 # Executando o script correspondente em cada aba
 import geral
 with tabs[0]:
-    geral.run()
+    geral.geral(filtered_df)
