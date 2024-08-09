@@ -8,14 +8,14 @@ import plotly.express as px
 def graphs(filtered_df):
     #st.set_page_config(page_title="Legatus Data Mall", layout="wide")
     #Subtitle
-    st.subheader("Geral")
+    st.subheader("Vendas")
    
     col1, col2, col3 = st.columns(3)
     
     with col1:
         st.write("vendas ano x ano")
         fig1 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Safe, x="month", y="venda_total", color='year')
-        fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas YOY'}, margin=dict(l=0, r=0, t=0, b=2))
+        fig1.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas'}, margin=dict(l=0, r=0, t=0, b=2))
         st.plotly_chart(fig1, use_container_width=True)
     
     with col2:
