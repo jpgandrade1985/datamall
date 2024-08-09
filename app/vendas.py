@@ -21,7 +21,7 @@ def graphs(filtered_df):
             hovermode="x",
         )
 
-        data = [go.Scatter(x=filtered_df["nome_mes"], y=filtered_df["venda_total"], xaxis="x", yaxis="y", name="shopping")]
+        data = [go.Scatter(x=filtered_df["nome_mes"], y=filtered_df["venda_total"], xaxis="x", yaxis="y", name="shopping", color="ano")]
         fig1 = go.Figure(data=filtered_df, layout=layout)
         
         #fig1 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="nome_mes", y="venda_total", color='ano', facet_row="shopping")
