@@ -72,7 +72,8 @@ filtered_df = df[df['shopping'].isin(selected_shopping) & (df['mes'] >= start_da
 # Drop the original 'mes' column and rename the formatted column for display
 filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted': 'mes'})
 
-# Função para executar o conteúdo de um arquivo Python
+# Agregando dados dos dois shoppings po mês
+agg_df = filtered_df.groupby('nome_mes')['venda_total'].sum()
 
 # Criando as abas
 tabs = st.tabs(["Geral", "Vendas", "Resultado"])
