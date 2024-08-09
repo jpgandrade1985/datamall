@@ -20,14 +20,14 @@ def graphs(filtered_df):
     
     with col2:
         st.write("vendas/m² ano x ano")
-        fig2 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Set2, x="nome_mes", y="venda_total_m2", color='ano')
+        fig2 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Set2, x="nome_mes", y="venda_total_m2", color='ano', facet_row="shopping")
         fig2.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área total'}, margin=dict(l=0, r=0, t=0, b=2))
         st.plotly_chart(fig2, use_container_width=True)
     
     
     with col3:
-        st.write("vendas/m² ocupado")
-        fig3 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Set2, x="mes", y="venda_total_m2_ocupado", color='shopping')
+        st.write("vendas/m² ocupado ano x ano")
+        fig3 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.Set2, x="nome_mes", y="venda_total_m2_ocupado", color='ano', facet_row="shopping")
         fig3.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'Vendas / m² - área ocupada'}, margin=dict(l=0, r=0, t=0, b=2))
         st.plotly_chart(fig3, use_container_width=True)
     
