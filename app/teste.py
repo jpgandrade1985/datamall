@@ -72,9 +72,15 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 # Função para executar o conteúdo de um arquivo Python
 
 # Criando as abas
-tabs = st.tabs(["Geral"])
+tabs = st.tabs(["Geral", "Vendas", "Resultado"])
 
 # Executando o script correspondente em cada aba
 import geral
-with tabs[0]:
+import vendas
+import resultados
+
+with tabs[1]:
+    geral.graphs(filtered_df)
+
+with tabs[2]:
     geral.graphs(filtered_df)
