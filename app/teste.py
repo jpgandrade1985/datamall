@@ -39,7 +39,7 @@ years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 with st.sidebar:
 
     # Create a multiselect menu for 'shopping'
-    selected_shopping = st.multiselect('Selecionar Shopping', shopping_options, default=shopping_options)
+    selected_shopping = st.multiselect('Selecionar Shopping', shopping_options, default=shopping_options, key=aaa)
 
     # Create select boxes for start and end month/year
     start_month = st.selectbox('Mês Inicial', months, index=0)
