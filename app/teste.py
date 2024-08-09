@@ -74,6 +74,7 @@ filtered_df = filtered_df.drop(columns=['mes']).rename(columns={'mes_formatted':
 
 # Agregando dados dos dois shoppings po mês
 agg_df = filtered_df.groupby('nome_mes')['venda_total'].sum()
+st.write(agg_df)
 
 # Criando as abas
 tabs = st.tabs(["Geral", "Vendas", "Resultado"])
@@ -91,3 +92,7 @@ with tabs[1]:
 
 with tabs[2]:
     geral.graphs(filtered_df)
+
+with st.expander("Tabela de Dados"):
+    # Display the filtered DataFrame
+    st.write(filtered_df)
