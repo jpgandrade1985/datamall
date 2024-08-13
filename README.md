@@ -3,9 +3,8 @@
 A primeira etapa é o desenvolvimento de dashboards para shopping centers. A plataforma está sendo desenvolvida em Python/Streamlit pela facilidade de desenvolvimento e deploy.
 Utilizamos dados hipotéticos de 2 shopping centers.
 
-- [ ] criação do banco de dados usando os rigs enviados pelos administradores
+- [ ] criação do modelo banco de dados usando os rigs enviados pelos administradores
 - [ ] definição de métricas e forma de comparação (se tempo: mensal?)
-- [ ] Streamlit
 
 ### Indicadores
 ##### Vendas
