@@ -16,8 +16,14 @@ db_host = st.secrets["db_host"]
 db_port = st.secrets["db_port"]
 db_name = st.secrets["db_name"]
 engine = create_engine(f'mysql+mysqlconnector://{db_user}:{db_password}@{db_host}:{db_port}/{db_name}')
+
+#query indicadores
 query = 'SELECT * FROM data_mall.indicadores'
 df = pd.read_sql(query, engine)
+
+#query vendas
+query_vendas = 'SELECT * FROM data_mall.grupo_ativ_loja'
+df_vendas = pd.read_sql(query_vendas, engine)
 
 # Convert 'mes' column to datetime with the correct format and handle errors
 df['mes'] = pd.to_datetime(df['mes'], format='%m-%d-%Y', errors='coerce')
