@@ -8,14 +8,26 @@ A primeira etapa é o desenvolvimento de dashboards para shopping centers e tem 
 ### Indicadores
 ##### Vendas
 - vendas por loja
-- vendas por setor
+- vendas por tipo de loja - sunburst
+- vendas por setor - sunburst
 - vendas totais
+- vendas totais yoy
 - vendas / m²
+- vendas / m² yoy
+  
 ##### Inadimplência
 - Inadimplência total
+- Inadimplência total yoy
 - Inadimplência líquida
+- Inadimplência líquida yoy
 - Inadimplência por loja
 
-#### Diagrama de Sankey
-Informa as fontes e usos, do faturamento + aportes total até a disitribuição
+##### Resultados
+- NOI
+- NOI yoy
+- NOI/m²
+- NOI/m² yoy
+- Sankey partindo das receitas+aportes até resultado distribuído
+
+
 
