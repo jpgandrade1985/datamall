@@ -54,6 +54,18 @@ def graphs(filtered_df):
         fig4 = px.line(filtered_df, color_discrete_sequence=px.colors.qualitative.T10, x="mes", y="noi_caixa", color='shopping')
         fig4.update_layout(xaxis={'showticklabels': True, 'title': ''}, yaxis={'showticklabels': True, 'title': 'NOI Caixa'}, margin=dict(l=0, r=0, t=0, b=2))
         st.plotly_chart(fig4, use_container_width=True)
+
+    #faz o gráfico de sunburst de vendas, classificando por tipo > setor > loja
+
+        #df1 = df_vendas.loc[(df_vendas["data"] == "2023-08-01")] #deixar essa data como variável do dropdown
+        #fig = px.sunburst(df1, path=['grupo', 'setor', 'nome_loja'], values='venda')
+        #fig.show()
+
+        #faz o gráfico de sunburst de vendas/m², classificando por tipo > setor > loja
+        #df1 = df.loc[(df["data"] == "2023-08-01")]
+        #df2 = df.loc[(df["data"] == "2023-09-01")]
+        #fig = px.sunburst(df1, path=['grupo', 'setor', 'nome_loja'], values='venda_m2')
+        f#ig.show()
     
     with col5:
         st.write("NOI Caixa/m² total")
