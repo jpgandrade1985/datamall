@@ -50,10 +50,6 @@ years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 
 with st.sidebar:
 
-    #inserir logo
-    image_path = "https://legatusasset.com.br/wp-content/uploads/2023/08/Lagatus_Capital_1-1.png"
-    st.image(image_path)
-
     # Create a multiselect menu for 'shopping'
     selected_shopping = st.multiselect('Selecionar Shopping', shopping_options, default=shopping_options)
 
