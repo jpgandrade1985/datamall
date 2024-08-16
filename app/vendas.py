@@ -58,14 +58,14 @@ def graphs(filtered_df):
     #faz o gráfico de sunburst de vendas, classificando por tipo > setor > loja
 
         #df1 = df_vendas.loc[(df_vendas["data"] == "2023-08-01")] #deixar essa data como variável do dropdown
-        #fig = px.sunburst(df1, path=['grupo', 'setor', 'nome_loja'], values='venda')
+        #fig5 = px.sunburst(df1, path=['grupo', 'setor', 'nome_loja'], values='venda')
         #fig.show()
 
         #faz o gráfico de sunburst de vendas/m², classificando por tipo > setor > loja
         #df1 = df.loc[(df["data"] == "2023-08-01")]
         #df2 = df.loc[(df["data"] == "2023-09-01")]
-        #fig = px.sunburst(df1, path=['grupo', 'setor', 'nome_loja'], values='venda_m2')
-        f#ig.show()
+        #fig5 = px.sunburst(df1, path=['grupo', 'setor', 'nome_loja'], values='venda_m2')
+        fig5.show()
     
     with col5:
         st.write("NOI Caixa/m² total")
