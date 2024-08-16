@@ -5,6 +5,7 @@ import streamlit as st
 import os
 import plotly.express as px
 import plotly.graph_objects as go
+from PIL import Image
 
 st.set_page_config(page_title="Legatus Data Mall", layout="wide")
 
@@ -50,8 +51,9 @@ years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 with st.sidebar:
 
     #inserir logo
-    logoURL = 'https://github.com/jpgandrade1985/datamall/blob/main/app/imagens/LC_logo.png'
-    st.image(logoURL, use_column_width=True)
+    image_path = 'imagens/LC_logo.png'
+    logo_lgt = Image.open(image_path)
+    st.image(image, use_column_width=True)
 
     # Create a multiselect menu for 'shopping'
     selected_shopping = st.multiselect('Selecionar Shopping', shopping_options, default=shopping_options)
