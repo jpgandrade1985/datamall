@@ -50,7 +50,8 @@ years = list(range(df['mes'].dt.year.min(), df['mes'].dt.year.max() + 1))
 with st.sidebar:
 
     #inserir logo
-    st.image("https://github.com/jpgandrade1985/datamall/blob/main/app/imagens/LC_logo.png")
+    logoURL = 'https://github.com/jpgandrade1985/datamall/blob/main/app/imagens/LC_logo.png'
+    st.image(logoURL, use_column_width=True)
 
     # Create a multiselect menu for 'shopping'
     selected_shopping = st.multiselect('Selecionar Shopping', shopping_options, default=shopping_options)
