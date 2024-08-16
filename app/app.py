@@ -52,7 +52,7 @@ with st.sidebar:
 
     #inserir logo
     image_path = 'imagens/LC_logo.png'
-    st.image(image, use_column_width=True)
+    st.image(image_path, use_column_width=True)
 
     # Create a multiselect menu for 'shopping'
     selected_shopping = st.multiselect('Selecionar Shopping', shopping_options, default=shopping_options)
