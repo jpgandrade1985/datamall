@@ -65,7 +65,7 @@ def graphs(filtered_df):
         #df1 = df.loc[(df["data"] == "2023-08-01")]
         #df2 = df.loc[(df["data"] == "2023-09-01")]
         #fig5 = px.sunburst(df1, path=['grupo', 'setor', 'nome_loja'], values='venda_m2')
-        fig5.show()
+        #fig5.show()
     
     with col5:
         st.write("NOI Caixa/m² total")
