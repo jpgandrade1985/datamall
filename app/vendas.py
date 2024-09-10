@@ -4,6 +4,7 @@ import datetime
 import streamlit as st
 import os
 import plotly.express as px
+from app.py import agg_df
 
 def graphs(filtered_df):
     #Subtitle
